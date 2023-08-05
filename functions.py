@@ -271,13 +271,22 @@ def getContent(postSeg):
     """
     post = postSeg.find("span", class_ = defClass.content_span_class)
 
+    # case 1: plain text 
     if(post is not None):
         CONTENT = post.getText()
     else:
-        CONTENT = postSeg.find("div", class_ = "xzsf02u xngnso2 xo1l8bm x1qb5hxa").getText()
-        # If the post really has no text content
-        if(CONTENT is None):
-            CONTENT = ""
+        CONTENT = postSeg.find("div", class_ = "xzsf02u xngnso2 xo1l8bm x1qb5hxa")
+        if(CONTENT is not None):
+            # case 2: text with bigger font
+            CONTENT = CONTENT.getText()
+        else:
+            CONTENT = postSeg.find("div", class_ = "xdj266r x11i5rnm xat24cr x1mh8g0r x1vvkbs")
+            if(CONTENT is not None):
+                # case 3: card text
+                CONTENT = CONTENT.getText()
+            else:
+                # case 4: the post really has no text content
+                CONTENT = ""
 
     return CONTENT
 
