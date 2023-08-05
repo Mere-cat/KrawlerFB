@@ -44,11 +44,11 @@ def crawl(email, password, group, totalPost, dataSet):
     url = "https://www.facebook.com/"
     
     # make selenium not pop up windows
-    # options = Options()
-    # options.add_argument("--headless")
-    # driver = webdriver.Firefox(options=options) # we use firefox here, it can be other browser
+    options = Options()
+    options.add_argument("--headless")
+    driver = webdriver.Firefox(options=options) # we use firefox here, it can be other browser
     
-    driver = webdriver.Firefox()
+    #driver = webdriver.Firefox()
 
     # Enter Facebook
     driver.get(url)
