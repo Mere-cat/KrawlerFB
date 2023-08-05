@@ -204,7 +204,6 @@ def getAuthor(postSeg):
     """
     postAUTHOR = postSeg.find("h3", class_= defClass.author_class)
     AUTHOR = postAUTHOR.getText().strip()
-    print(AUTHOR)
     return AUTHOR
 
 def findCreationTime(data):
