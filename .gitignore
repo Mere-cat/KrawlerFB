@@ -1,0 +1,6 @@
+__pycache__/
+geckodriver.log
+output.csv
+.ipynb_checkpoints/
+.*
+!/.gitignore
