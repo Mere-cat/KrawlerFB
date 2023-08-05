@@ -63,6 +63,10 @@ def clickSeeMore(driver):
                 arguments[0].scrollIntoView({behavior: "auto", block: "center", inline: "center"});
                 callback();""", moreReply)
                 
+                # not click the hide btn
+                if('隱藏' in moreReply.get_attribute("textContent")):
+                    continue
+                
                 # click
                 driver.execute_script('arguments[0].click();', moreReply)
                 time.sleep(3)
